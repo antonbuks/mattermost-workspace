@@ -26,6 +26,7 @@ const DEV = targetIsRun || targetIsStats || targetIsDevServer;
 
 const STANDARD_EXCLUDE = [
     path.join(__dirname, 'node_modules'),
+    path.join(__dirname, '../node_modules'),
 ];
 
 // react-hot-loader and development source maps require eval
@@ -120,9 +121,7 @@ var MYSTATS = {
     warningsFilter: '',
 };
 
-let publicPath = path.join(__dirname, 'static/');
-
-console.log(publicPath)
+let publicPath = '/static/';
 
 // Allow overriding the publicPath in dev from the exported SiteURL.
 // if (DEV) {
