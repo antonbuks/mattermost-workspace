@@ -20,7 +20,7 @@ $ make run-server
 #### `webapp`
 ```shell
 $ yarn
-$ yarn dev-server:webapp
+$ yarn build:webapp
 ```
 #### `packages`
 ```shell
