@@ -10,8 +10,6 @@ To get started, read and follow the instructions in [Developing inside a Contain
 - Open VSCode and bring up the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 - Type `Remote-Containers: Open Folder in Container`, this will build the container with Go and Node installed, this will also start Postgres.
 
-> If you need to modify environment variables for kousa, you need to modify them inside `/home/mmdev/.bashrc` and restart your terminal.
-
 ### Run
 #### `server`
 ```shell
