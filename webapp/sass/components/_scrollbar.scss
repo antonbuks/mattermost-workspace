@@ -1,0 +1,61 @@
+@charset 'UTF-8';
+
+::-webkit-scrollbar {
+    width: 8px;  // for vertical scrollbars
+    height: 8px; // for horizontal scrollbars
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: $border-rad * 2;
+}
+
+body {
+    &.app__body {
+        scrollbar-3dlight-color: #7d7e94;
+        scrollbar-arrow-color: #c1c1d1;
+        scrollbar-darkshadow-color: #2d2c4d;
+        scrollbar-face-color: rgba(var(--center-channel-bg-rgb), 0.1);
+        scrollbar-highlight-color: #7d7e94;
+        scrollbar-shadow-color: #2d2c4d;
+        scrollbar-track-color: rgba(var(--center-channel-bg-rgb), 0.1);
+    }
+
+    .ps {
+        > .ps__scrollbar-y-rail {
+            > .ps__scrollbar-y {
+                width: 6px !important;
+            }
+        }
+
+        &:hover {
+            > .ps__scrollbar-y-rail {
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+    }
+}
+
+.scrollbar--horizontal,
+.scrollbar--vertical {
+    background-color: rgba(var(--sidebar-text-rgb), 0.32);
+    border-radius: 2px;
+}
+
+.scrollbar--view {
+    .browser--ie & {
+        margin: 0 !important;
+        -ms-overflow-style: none;
+        overflow-x: hidden !important;
+
+        .scrollbar--vertical {
+            visibility: hidden;
+        }
+    }
+}
