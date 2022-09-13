@@ -1,0 +1,20 @@
+{
+    "name": "Mattermost",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "workspace",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "jakebecker.elixir-ls",
+        "bradlc.vscode-tailwindcss"
+    ],
+    "forwardPorts": [
+        80,
+        9000,
+        4001,
+        8080
+    ],
+    "postCreateCommand": ["bash", ".devcontainer/scripts/environment.sh"],
+    "remoteUser": "mmdev"
+}

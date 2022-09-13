@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/sidebar/channel_filter should match snapshot 1`] = `
+<div
+  className="SidebarFilters"
+>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    delayShow={500}
+    overlay={
+      <Tooltip
+        className="hidden-xs"
+        id="new-group-tooltip"
+      >
+        Filter by unread
+      </Tooltip>
+    }
+    placement="right"
+    trigger={
+      Array [
+        "hover",
+        "focus",
+      ]
+    }
+  >
+    <a
+      aria-label="Filter by unread"
+      className="SidebarFilters_filterButton"
+      href="#"
+      onClick={[Function]}
+    >
+      <i
+        className="icon icon-filter-variant"
+      />
+    </a>
+  </OverlayTrigger>
+</div>
+`;
+
+exports[`components/sidebar/channel_filter should match snapshot if the unread filter is enabled 1`] = `
+<div
+  className="SidebarFilters"
+>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    delayShow={500}
+    overlay={
+      <Tooltip
+        className="hidden-xs"
+        id="new-group-tooltip"
+      >
+        Show all channels
+      </Tooltip>
+    }
+    placement="right"
+    trigger={
+      Array [
+        "hover",
+        "focus",
+      ]
+    }
+  >
+    <a
+      aria-label="Show all channels"
+      className="SidebarFilters_filterButton active"
+      href="#"
+      onClick={[Function]}
+    >
+      <i
+        className="icon icon-filter-variant"
+      />
+    </a>
+  </OverlayTrigger>
+</div>
+`;

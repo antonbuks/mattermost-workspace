@@ -1,0 +1,17 @@
+{
+  "name": "mattermost-unity",
+  "packageManager": "yarn@3.2.2",
+  "private": true,
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.4.0"
+  },
+  "workspaces": {
+    "packages": [
+      "client",
+      "types",
+      "components",
+      "webapp"
+    ]
+  }
+}
