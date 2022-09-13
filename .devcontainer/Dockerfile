@@ -17,35 +17,13 @@ ARG USER_GID=1000
 
 COPY scripts/*.sh /tmp/scripts/
 
-# Setup user
-# RUN adduser $USERNAME -s /bin/sh -D -u $USER_UID $USER_GID && \
-#     mkdir -p /etc/sudoers.d && \
-#     echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
-#     chmod 0440 /etc/sudoers.d/$USERNAME
-
-# RUN apk add -q --update --progress --no-cache git sudo openssh-client zsh
-
-# # Install some needed packages
-# RUN apk add --no-cache \
-# 	ca-certificates \
-# 	curl \
-# 	jq \
-# 	libc6-compat \
-# 	libffi-dev \
-# 	libcap \
-# 	linux-headers \
-# 	mailcap \
-# 	netcat-openbsd \
-# 	xmlsec-dev \
-# 	tzdata \
-#     git \
-# 	&& rm -rf /tmp/*
-
 # Create non-root doge user
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && bash /tmp/scripts/user.sh "$USERNAME" "$USER_UID" "$USER_GID" \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /root/.gnupg
+
+RUN bash /tmp/scripts/db.sh
 
 # Install Node.js
 ARG NVM_DIR=/home/$USERNAME/.nvm

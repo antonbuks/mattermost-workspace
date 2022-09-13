@@ -172,7 +172,7 @@ func (ds *DatabaseStore) initializeConfigurationsTable() error {
 // parseDSN splits up a connection string into a driver name and data source name.
 //
 // For example:
-//	mysql://mmuser:mostest@localhost:5432/mattermost_test
+//	mysql://mmuser:mostest@localhost/mattermost_test
 // returns
 //	driverName = mysql
 //	dataSourceName = mmuser:mostest@localhost:5432/mattermost_test

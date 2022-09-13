@@ -4,16 +4,21 @@
     "service": "workspace",
     "workspaceFolder": "/workspace",
     "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "jakebecker.elixir-ls",
-        "bradlc.vscode-tailwindcss"
+        "dbaeumer.vscode-eslint"
     ],
     "forwardPorts": [
-        80,
-        9000,
-        4001,
-        8080
+        9000, //api
+        9005, //webapp
+        3306, //mysql
+		5432, //postgres
+		9000, //minio
+		9001, //inbucket
+		389, //openldap
+		9200, //elasticsearch
+		1358, //dejavu
+		8080, //keycloak
+		9090, //prometheus
+		3000 //grafana
     ],
     "postCreateCommand": ["bash", ".devcontainer/scripts/environment.sh"],
     "remoteUser": "mmdev"

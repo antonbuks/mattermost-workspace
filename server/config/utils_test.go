@@ -224,9 +224,9 @@ func TestStripPassword(t *testing.T) {
 			ExpectedOut: "mysql://mmuser:@tcp(localhost:3306)/mattermost?charset=utf8mb4,utf8&readTimeout=30s",
 		},
 		"postgres": {
-			DSN:         "postgres://mmuser:password@localhost:5432/mattermost?sslmode=disable&connect_timeout=10",
+			DSN:         "postgres://mmuser:password@localhost/mattermost?sslmode=disable&connect_timeout=10",
 			Schema:      "postgres",
-			ExpectedOut: "postgres://mmuser:@localhost:5432/mattermost?sslmode=disable&connect_timeout=10",
+			ExpectedOut: "postgres://mmuser:@localhost/mattermost?sslmode=disable&connect_timeout=10",
 		},
 		"pipe": {
 			DSN:         "mysql://user@unix(/path/to/socket)/dbname",
@@ -234,9 +234,9 @@ func TestStripPassword(t *testing.T) {
 			ExpectedOut: "mysql://user@unix(/path/to/socket)/dbname",
 		},
 		"malformed without :": {
-			DSN:         "postgres://mmuserpassword@localhost:5432/mattermost?sslmode=disable&connect_timeout=10",
+			DSN:         "postgres://mmuserpassword@localhost/mattermost?sslmode=disable&connect_timeout=10",
 			Schema:      "postgres",
-			ExpectedOut: "postgres://mmuserpassword@localhost:5432/mattermost?sslmode=disable&connect_timeout=10",
+			ExpectedOut: "postgres://mmuserpassword@localhost/mattermost?sslmode=disable&connect_timeout=10",
 		},
 		"malformed without @": {
 			DSN:         "postgres://mmuser:passwordlocalhost:5432/mattermost?sslmode=disable&connect_timeout=10",

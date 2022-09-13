@@ -120,18 +120,20 @@ var MYSTATS = {
     warningsFilter: '',
 };
 
-let publicPath = '/static/';
+let publicPath = path.join(__dirname, 'static/');
+
+console.log(publicPath)
 
 // Allow overriding the publicPath in dev from the exported SiteURL.
-if (DEV) {
-    const siteURL = process.env.MM_SERVICESETTINGS_SITEURL || ''; //eslint-disable-line no-process-env
-    if (siteURL) {
-        publicPath = path.join(new url.URL(siteURL).pathname, 'static') + '/';
-    }
-}
+// if (DEV) {
+//     const siteURL = process.env.MM_SERVICESETTINGS_SITEURL || ''; //eslint-disable-line no-process-env
+//     if (siteURL) {
+//         publicPath = path.join(new url.URL(siteURL).pathname, 'static') + '/';
+//     }
+// }
 
 var config = {
-    entry: ['./root.tsx', 'root.html'],
+    entry: ['./root.tsx', './root.html'],
     output: {
         publicPath,
         filename: '[name].[contenthash].js',

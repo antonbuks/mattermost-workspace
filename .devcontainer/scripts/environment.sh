@@ -1,5 +1,5 @@
 # Env
-cat >> "/home/$USERNAME/.bashrc" << EOL
+cat >> "/home/mmdev/.bashrc" << EOL
 
 # Environment variables 
 export DATABASE_URL=postgres://postgres:postgres@localhost/mattermost_test

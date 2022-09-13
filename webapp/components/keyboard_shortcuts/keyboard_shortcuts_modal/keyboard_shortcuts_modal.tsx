@@ -6,9 +6,9 @@ import {Modal} from 'react-bootstrap';
 import {defineMessages, useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
 
-import {GlobalState} from 'types/store';
+import {suitePluginIds} from '@mattermost/client';
 
-import {suitePluginIds} from 'packages/client/src/client4';
+import {GlobalState} from 'types/store';
 
 import {t} from 'utils/i18n';
 import * as Utils from 'utils/utils';

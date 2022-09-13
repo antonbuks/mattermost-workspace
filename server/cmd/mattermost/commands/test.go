@@ -144,7 +144,7 @@ func runWebClientTests() {
 	if webappDir := os.Getenv("WEBAPP_DIR"); webappDir != "" {
 		os.Chdir(webappDir)
 	} else {
-		os.Chdir("../mattermost-webapp")
+		os.Chdir("../webapp")
 	}
 
 	cmd := exec.Command("npm", "test")

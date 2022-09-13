@@ -24,10 +24,14 @@ services:
       - postgres
       
   postgres:
-    image: postgres:13-alpine
+    image: postgres:latest
     restart: unless-stopped
     labels:
       com.mattermost.description: "Postgres Database"
+    environment:
+      POSTGRES_USER: mmuser
+      POSTGRES_PASSWORD: mmuser_password
+      POSTGRES_DB: mattermost_test # Initial schema name
     volumes:
       - ./.docker/postgres:/var/lib/postgresql/data
     ports:
@@ -37,7 +41,7 @@ services:
     image: adminer
     restart: unless-stopped
     ports:
-      - 8080:8080
+      - 8065:8065
     labels:
       com.mattermost.description: "Adminer Database"
     depends_on: 
