@@ -26,7 +26,7 @@ docker run --name "${COMPOSE_PROJECT_NAME}_curl_elasticsearch" --net $DOCKER_NET
 
 docker run -d -it --rm --name $CONTAINER_SERVER --net $DOCKER_NETWORK \
   --env-file="dotenv/test.env" \
-  --env MM_SQLSETTINGS_DATASOURCE="mmuser:mostest@tcp(mysql:3306)/mattermost_test?charset=utf8mb4,utf8&multiStatements=true" \
+  --env MM_SQLSETTINGS_DATASOURCE="postgres:postgres@tcp(mysql:3306)/mattermost_test?charset=utf8mb4,utf8&multiStatements=true" \
   --env MM_SQLSETTINGS_DRIVERNAME=mysql \
   -v "$CI_PROJECT_DIR":/mattermost-server \
   -w /mattermost-server \

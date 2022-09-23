@@ -36,7 +36,7 @@ function makeMapStateToProps() {
             unreadScrollPosition: getUnreadScrollPositionPreference(state),
             enablePreviewFeatures,
             enableUserDeactivation,
-            wysiwygAllowed: isWysiwygAllowed(state),
+            wysiwygAllowed: true, // isWysiwygAllowed(state),
         };
     };
 }

@@ -11,8 +11,8 @@ test-quick:
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""
-    TEST_DATABASE_MYSQL_DSN: "mmuser:mostest@tcp(mysql:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s&multiStatements=true"
-    TEST_DATABASE_POSTGRESQL_DSN: "postgres://mmuser:mostest@postgres:5432/mattermost_test?sslmode=disable&connect_timeout=10"
+    TEST_DATABASE_MYSQL_DSN: "postgres:postgres@tcp(mysql:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s&multiStatements=true"
+    TEST_DATABASE_POSTGRESQL_DSN: "postgres://postgres:postgres@postgres:5432/mattermost_test?sslmode=disable&connect_timeout=10"
     TEST_DATABASE_MYSQL_ROOT_PASSWD: "mostest"
   services:
     - docker:dind
@@ -39,8 +39,8 @@ test-full:
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""
-    TEST_DATABASE_MYSQL_DSN: "mmuser:mostest@tcp(mysql:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s&multiStatements=true"
-    TEST_DATABASE_POSTGRESQL_DSN: "postgres://mmuser:mostest@postgres:5432/mattermost_test?sslmode=disable&connect_timeout=10"
+    TEST_DATABASE_MYSQL_DSN: "postgres:postgres@tcp(mysql:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s&multiStatements=true"
+    TEST_DATABASE_POSTGRESQL_DSN: "postgres://postgres:postgres@postgres:5432/mattermost_test?sslmode=disable&connect_timeout=10"
     TEST_DATABASE_MYSQL_ROOT_PASSWD: "mostest"
   services:
     - docker:dind

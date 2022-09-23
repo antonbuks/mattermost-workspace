@@ -17,7 +17,7 @@ import WysiwygSection from './wysiwyg_section';
 function mapStateToProps(state: GlobalState) {
     return {
         currentUserId: getCurrentUserId(state),
-        wysiwygEnabled: getWysiwygPreference(state),
+        wysiwygEnabled: true, //getWysiwygPreference(state),
     };
 }
 

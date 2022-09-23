@@ -8,7 +8,7 @@ import {useSelector} from 'react-redux';
 
 import {GlobalState} from 'types/store';
 
-import {suitePluginIds} from 'packages/client/src/client4';
+// import {suitePluginIds} from 'packages/client/src/client4';
 
 import {t} from 'utils/i18n';
 import * as Utils from 'utils/utils';
@@ -94,7 +94,7 @@ const KeyboardShortcutsModal = ({onExited}: Props): JSX.Element => {
     const isLinux = Utils.isLinux();
 
     const isCallsEnabled = useSelector((state: GlobalState) => {
-        return Boolean(state.plugins.plugins[suitePluginIds.calls]);
+        return false; // Boolean(state.plugins.plugins[suitePluginIds.calls]);
     });
 
     const renderShortcutSequences = (shortcuts: {[key: string]: KeyboardShortcutDescriptor}) => {

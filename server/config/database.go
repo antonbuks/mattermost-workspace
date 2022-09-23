@@ -172,10 +172,10 @@ func (ds *DatabaseStore) initializeConfigurationsTable() error {
 // parseDSN splits up a connection string into a driver name and data source name.
 //
 // For example:
-//	mysql://mmuser:mostest@localhost/mattermost_test
+//	mysql://postgres:postgres@localhost/mattermost_test
 // returns
 //	driverName = mysql
-//	dataSourceName = mmuser:mostest@localhost:5432/mattermost_test
+//	dataSourceName = postgres:postgres@localhost:5432/mattermost_test
 //
 // By contrast, a Postgres DSN is returned unmodified.
 func parseDSN(dsn string) (string, string, error) {

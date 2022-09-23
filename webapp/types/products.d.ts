@@ -12,8 +12,8 @@ declare module 'focalboard' {
     }
 }
 
-declare module 'focalboard/manifest' {
-    import type {PluginManifest} from '@mattermost/types/plugins';
-    const module: PluginManifest;
-    export default module;
-}
+// declare module 'focalboard/manifest' {
+//     import type {PluginManifest} from '@mattermost/types/plugins';
+//     const module: PluginManifest;
+//     export default module;
+// }

@@ -12,7 +12,7 @@ import {
 import {Editable, withReact, useSlate, Slate, RenderElementProps, RenderLeafProps} from 'slate-react';
 import {withHistory} from 'slate-history';
 
-import {Button, Icon, Toolbar} from './wysiwyg_components';
+// import {Button, Icon, Toolbar} from './wysiwyg_components';
 
 const HOTKEYS: Record<string, string> = {
     'mod+b': 'bold',
@@ -34,7 +34,7 @@ const RichTextExample = () => {
             editor={editor}
             value={initialValue}
         >
-            <Toolbar>
+            {/* <Toolbar>
                 <MarkButton
                     format='bold'
                     icon='format_bold'
@@ -87,7 +87,7 @@ const RichTextExample = () => {
                     format='justify'
                     icon='format_align_justify'
                 />
-            </Toolbar>
+            </Toolbar> */}
             <Editable
                 renderElement={renderElement}
                 renderLeaf={renderLeaf}
@@ -213,33 +213,35 @@ const Leaf = ({attributes, children, leaf}: RenderLeafProps) => {
 const BlockButton = ({format, icon}) => {
     const editor = useSlate();
     return (
-        <Button
-            active={isBlockActive(
-                editor,
-                format,
-            )}
-            onMouseDown={(event) => {
-                event.preventDefault();
-                toggleBlock(editor, format);
-            }}
-        >
-            <Icon>{icon}</Icon>
-        </Button>
+        <></>
+    //     <Button
+    //         active={isBlockActive(
+    //             editor,
+    //             format,
+    //         )}
+    //         onMouseDown={(event) => {
+    //             event.preventDefault();
+    //             toggleBlock(editor, format);
+    //         }}
+    //     >
+    //         <Icon>{icon}</Icon>
+    //     </Button>
     );
 };
 
 const MarkButton = ({format, icon}) => {
     const editor = useSlate();
     return (
-        <Button
-            active={isMarkActive(editor, format)}
-            onMouseDown={(event) => {
-                event.preventDefault();
-                toggleMark(editor, format);
-            }}
-        >
-            <Icon>{icon}</Icon>
-        </Button>
+        <></>
+        // <Button
+        //     active={isMarkActive(editor, format)}
+        //     onMouseDown={(event) => {
+        //         event.preventDefault();
+        //         toggleMark(editor, format);
+        //     }}
+        // >
+        //     <Icon>{icon}</Icon>
+        // </Button>
     );
 };
 

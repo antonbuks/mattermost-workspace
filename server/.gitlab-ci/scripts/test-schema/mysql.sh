@@ -29,12 +29,12 @@ docker exec -i $CONTAINER_DB mysql -D migrated -uroot -pmostest < "$CI_PROJECT_D
 docker exec -i $CONTAINER_DB mysql -D migrated -uroot -pmostest -e "INSERT INTO Systems (Name, Value) VALUES ('Version', '6.0.0')"
 docker run -d -it --rm --name "$CONTAINER_SERVER" --net $DOCKER_NETWORK \
   --env-file="dotenv/test-schema-validation.env" \
-  --env MM_SQLSETTINGS_DATASOURCE="mmuser:mostest@tcp(mysql:3306)/migrated?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s" \
+  --env MM_SQLSETTINGS_DATASOURCE="postgres:postgres@tcp(mysql:3306)/migrated?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s" \
   --env MM_SQLSETTINGS_DRIVERNAME=mysql \
   -v "$CI_PROJECT_DIR":/mattermost-server \
   -w /mattermost-server \
   $IMAGE_BUILD_SERVER \
-  bash -c "ulimit -n 8096; make ARGS='db migrate' run-cli && make MM_SQLSETTINGS_DATASOURCE='mmuser:mostest@tcp(mysql:3306)/latest?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s' ARGS='db migrate' run-cli"
+  bash -c "ulimit -n 8096; make ARGS='db migrate' run-cli && make MM_SQLSETTINGS_DATASOURCE='postgres:postgres@tcp(mysql:3306)/latest?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s' ARGS='db migrate' run-cli"
 mkdir -p logs
 docker-compose logs --tail="all" -t --no-color > logs/docker-compose_logs_$COMPOSE_PROJECT_NAME
 docker logs -f $CONTAINER_SERVER

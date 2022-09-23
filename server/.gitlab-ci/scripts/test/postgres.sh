@@ -25,7 +25,7 @@ timeout 90s bash -c "until docker exec ${COMPOSE_PROJECT_NAME}_postgres_1 pg_isr
 docker run --name "${COMPOSE_PROJECT_NAME}_curl_elasticsearch" --net $DOCKER_NETWORK $CI_REGISTRY/mattermost/ci/images/curl:7.59.0-1 sh -c "until curl --max-time 5 --output - http://elasticsearch:9200; do echo waiting for elasticsearch; sleep 5; done;"
 docker run -d -it --rm --name "${CONTAINER_SERVER}" --net $DOCKER_NETWORK \
   --env-file="dotenv/test.env" \
-  --env MM_SQLSETTINGS_DATASOURCE="postgres://mmuser:mostest@postgres:5432/mattermost_test?sslmode=disable&connect_timeout=10" \
+  --env MM_SQLSETTINGS_DATASOURCE="postgres://postgres:postgres@postgres:5432/mattermost_test?sslmode=disable&connect_timeout=10" \
   --env MM_SQLSETTINGS_DRIVERNAME=postgres \
   -v "$CI_PROJECT_DIR":/mattermost-server \
   -w /mattermost-server \

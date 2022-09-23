@@ -30,7 +30,7 @@ describe('components/DatabaseSettings', () => {
                 MaxOpenConns: 100,
                 Trace: false,
                 DisableDatabaseSearch: true,
-                DataSource: 'postgres://mmuser:mostest@localhost/mattermost_test?sslmode=disable\u0026connect_timeout=10',
+                DataSource: 'postgres://postgres:postgres@localhost/mattermost_test?sslmode=disable\u0026connect_timeout=10',
                 QueryTimeout: 10,
                 ConnMaxLifetimeMilliseconds: 10,
                 ConnMaxIdleTimeMilliseconds: 20,
