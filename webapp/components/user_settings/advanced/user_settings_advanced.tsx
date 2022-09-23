@@ -17,12 +17,13 @@ import SettingItemMin from 'components/setting_item_min';
 import ConfirmModal from 'components/confirm_modal';
 import BackIcon from 'components/widgets/icons/fa_back_icon';
 
+import {ActionResult} from 'mattermost-redux/types/actions';
+
 import {UserProfile} from '@mattermost/types/users';
 import {PreferenceType} from '@mattermost/types/preferences';
 
-import {ActionResult} from 'mattermost-redux/types/actions';
-
 import JoinLeaveSection from './join_leave_section';
+import WysiwygSection from './wysiwyg_section';
 import PerformanceDebuggingSection from './performance_debugging_section';
 
 const PreReleaseFeatures = Constants.PRE_RELEASE_FEATURES;
@@ -38,7 +39,6 @@ type Settings = {
 export type Props = {
     currentUser: UserProfile;
     advancedSettingsCategory: PreferenceType[];
-    isAdvancedTextEditorEnabled: boolean;
     sendOnCtrlEnter: string;
     codeBlockOnCtrlEnter: string;
     formatting: string;
@@ -50,6 +50,7 @@ export type Props = {
     collapseModal: () => void;
     enablePreviewFeatures: boolean;
     enableUserDeactivation: boolean;
+    wysiwygAllowed: boolean;
     actions: {
         savePreferences: (userId: string, preferences: PreferenceType[]) => Promise<ActionResult>;
         updateUserActive: (userId: string, active: boolean) => Promise<ActionResult>;
@@ -86,9 +87,7 @@ export default class AdvancedSettingsDisplay extends React.PureComponent<Props, 
         };
 
         const PreReleaseFeaturesLocal = JSON.parse(JSON.stringify(PreReleaseFeatures));
-        if (this.props.isAdvancedTextEditorEnabled) {
-            delete PreReleaseFeaturesLocal.MARKDOWN_PREVIEW;
-        }
+        delete PreReleaseFeaturesLocal.MARKDOWN_PREVIEW;
         const preReleaseFeaturesKeys = Object.keys(PreReleaseFeaturesLocal);
 
         let enabledFeatures = 0;
@@ -803,6 +802,14 @@ export default class AdvancedSettingsDisplay extends React.PureComponent<Props, 
                     </h3>
                     <div className='divider-dark first'/>
                     {ctrlSendSection}
+                    {formattingSectionDivider}
+                    {this.props.wysiwygAllowed &&
+                        <WysiwygSection
+                            activeSection={this.props.activeSection}
+                            onUpdateSection={this.handleUpdateSection}
+                            renderOnOffLabel={this.renderOnOffLabel}
+                        />
+                    }
                     {formattingSectionDivider}
                     {formattingSection}
                     <div className='divider-light'/>
